@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Port<span>folio</span></a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Hi, I'm <span>Muhammad Gibran Dhiyaulhaq</span></h1>
+                    <div class="hero-btns">
+                        <a href="#portfolio" class="btn">View My Work</a>
+                        <a href="#contact" class="btn btn-outline">Contact Me</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="image/bran.png" alt="Developer">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>   
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="image/agib.jpg" alt="About Me">
+                </div>
+                <div class="about-text">
+                    <h3>Who am I?</h3>
+                    <p>I am a junior programmer with 2 years of experience in project development, 
+                        such as websites, Android applications, and web design.</p>
+                    <p>My approach combines technical expertise with creative design thinking to 
+                        deliver solutions that are both functional and visually appealing.</p>
+                    <div class="skills">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>HTML/CSS</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>JavaScript</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>PHP</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Java</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>Custom website development from scratch using modern technologies and frameworks to create fast, secure, and scalable web applications.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Web Design</h3>
+                    <p>Beautiful, intuitive designs that focus on user experience and conversion optimization while maintaining brand identity.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Responsive Design</h3>
+                    <p>Mobile-first approach to ensure your website looks and works perfectly on all devices from smartphones to desktop computers.</p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Portfolio</h2>
+            </div>  
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web Design</button>
+                <button class="filter-btn" data-filter="app">App Development</button>
+                <!-- <button class="filter-btn" data-filter="graphic">Graphic Design</button> -->
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="web">
+                    <img src="image/echotune.png" alt="Project 1" class="portfolio-img" onclick="openFullscreen(this)">
+                    <div class="portfolio-overlay">
+                        <h3>EchoTune</h3>
+                        <p>My first web design</p>
+                        <div>
+                            <a href="#" onclick="openFullscreen(this.parentElement.parentElement.previousElementSibling); return false;"><i class="fas fa-search"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="app">
+                    <img src="image/healthhive.png" alt="Project 2" class="portfolio-img" onclick="openFullscreen(this)">
+                    <div class="portfolio-overlay">
+                        <h3>Health Hive</h3>
+                        <p>My first team project</p>
+                        <div>
+                            <a href="#" onclick="openFullscreen(this.parentElement.parentElement.previousElementSibling); return false;"><i class="fas fa-search"></i></a>
+                            <a href="https://github.com/Cry6z/health-hive" target="_blank" rel="noopener" title="Visit Project"><i class="fas fa-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="app">
+                    <img src="image/image.png" alt="Project 3" class="portfolio-img" onclick="openFullscreen(this)">
+                    <div class="portfolio-overlay">
+                        <h3>Hadirin</h3>
+                        <p>School absenteeism</p>
+                        <div>
+                            <a href="#" onclick="openFullscreen(this.parentElement.parentElement.previousElementSibling); return false;"><i class="fas fa-search"></i></a>
+                            <a href="https://github.com/Cry6z/Hadirin" target="_blank" rel="noopener" title="Visit Project"><i class="fas fa-link"></i></a>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!-- Fullscreen Modal -->
+            <div id="fullscreen-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.9);z-index:9999;justify-content:center;align-items:center;">
+                <span id="close-fullscreen" style="position:absolute;top:30px;right:40px;font-size:40px;color:#fff;cursor:pointer;">&times;</span>
+                <img id="fullscreen-img" src="" alt="Fullscreen" style="max-width:90vw;max-height:90vh;box-shadow:0 0 30px #000;">
+            </div>
+            <script src="zoom.js"></script>
+            </div>
+        </div>
+    </section>
+            <div class="slider-nav">
+                <div class="slider-dot active" data-slide="0"></div>
+                <div class="slider-dot" data-slide="1"></div>
+                <div class="slider-dot" data-slide="2"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Talk About Your Project</h3>
+                    <p>Feel free to reach out if you're looking for a developer for your project, have a question, or just want to connect.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>Bengkulu, Indonesia</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <a href="mailto:hello@example.com">gibran121208@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <a href="tel:+1234567890">+62 813 7966 9540</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://facebook.com/muhammad.g.dhiyaulhaq" target="_blank" rel="noopener" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/ichheissegibran" target="_blank" rel="noopener" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://github.com/Cry6z" target="_blank" rel="noopener" class="social-link"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="#" class="footer-logo">Port<span>folio</span></a>
+                <p>Creating digital experiences that matter.</p>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="footer-social">
+                    <a href="https://facebook.com/muhammad.g.dhiyaulhaq" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/ichheissegibran" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/Cry6z" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="year"></span> All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    <script src="script.js"></script>
+</body>
+</html>
