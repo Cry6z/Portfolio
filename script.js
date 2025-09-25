@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initBackToTop();
     initSmoothScroll();
     initCVDownloader();
+    initTechStackRotation();
 });
 
 // Navbar functionality
@@ -781,6 +782,105 @@ function preloadImages() {
 
 // Initialize image preloading
 preloadImages();
+
+// Tech Stack Rotation functionality
+function initTechStackRotation() {
+    const skillsList = document.querySelector('.skills-list');
+    
+    if (!skillsList) {
+        console.log('Skills list not found!');
+        return;
+    }
+    
+    console.log('Tech stack rotation initialized!');
+    
+    // Define two sets of tech stacks (9 each)
+    const techStackSets = [
+        // Set 1 - Current tech stacks
+        [
+            { icon: 'Icon/pyhton.png', name: 'Python' },
+            { icon: 'Icon/js.png', name: 'JavaScript' },
+            { icon: 'Icon/github.png', name: 'GitHub' },
+            { icon: 'Icon/flutter.png', name: 'Flutter' },
+            { icon: 'Icon/lara.png', name: 'Laravel' },
+            { icon: 'Icon/mysql.png', name: 'MySQL' },
+            { icon: 'Icon/html.png', name: 'HTML/CSS' },
+            { icon: 'Icon/android.png', name: 'Android' },
+            { icon: 'Icon/figma.png', name: 'Figma' }
+        ],
+        // Set 2 - Additional tech stacks
+        [
+            { icon: 'Icon/react.png', name: 'React', fallback: '⚛️' },
+            { icon: 'Icon/nodejs.png', name: 'Node.js', fallback: '🟢' },
+            { icon: 'Icon/vue.png', name: 'Vue.js', fallback: '💚' },
+            { icon: 'Icon/mongodb.png', name: 'MongoDB', fallback: '🍃' },
+            { icon: 'Icon/docker.png', name: 'Docker', fallback: '🐳' },
+            { icon: 'Icon/aws.png', name: 'AWS', fallback: '☁️' },
+            { icon: 'Icon/typescript.png', name: 'TypeScript', fallback: '📘' },
+            { icon: 'Icon/firebase.png', name: 'Firebase', fallback: '🔥' },
+            { icon: 'Icon/tailwind.png', name: 'Tailwind CSS', fallback: '💨' }
+        ]
+    ];
+    
+    let currentSetIndex = 0;
+    let isAnimating = false;
+    
+    // Function to create skill tag HTML
+    function createSkillTag(skill) {
+        return `
+            <div class="skill-tag">
+                <img src="${skill.icon}" alt="${skill.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+                <span class="fallback-icon" style="display: none; font-size: 24px; margin-right: 8px;">${skill.fallback || '💻'}</span>
+                <span>${skill.name}</span>
+            </div>
+        `;
+    }
+    
+    // Function to rotate tech stacks
+    function rotateTechStack() {
+        if (isAnimating) return;
+        
+        console.log('Rotating tech stack...');
+        isAnimating = true;
+        
+        // Add fade-out animation
+        skillsList.style.opacity = '0';
+        skillsList.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+            // Switch to next set
+            currentSetIndex = (currentSetIndex + 1) % techStackSets.length;
+            const currentSet = techStackSets[currentSetIndex];
+            
+            console.log('Switching to set:', currentSetIndex);
+            
+            // Update the HTML content
+            skillsList.innerHTML = currentSet.map(skill => createSkillTag(skill)).join('');
+            
+            // Add fade-in animation
+            skillsList.style.opacity = '1';
+            skillsList.style.transform = 'translateY(0)';
+            
+            isAnimating = false;
+        }, 300);
+    }
+    
+    // Set initial transition styles
+    skillsList.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+    
+    // Start rotation every 5 seconds
+    console.log('Starting tech stack rotation timer...');
+    setInterval(rotateTechStack, 5000);
+    
+    // Optional: Add hover pause functionality
+    skillsList.addEventListener('mouseenter', () => {
+        skillsList.style.animationPlayState = 'paused';
+    });
+    
+    skillsList.addEventListener('mouseleave', () => {
+        skillsList.style.animationPlayState = 'running';
+    });
+}
 
 // CV Downloader functionality
 function initCVDownloader() {
