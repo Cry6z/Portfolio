@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muhammad Gibran - Junior Fullstack Developer</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' style='stop-color:%236366f1;stop-opacity:1' /><stop offset='100%25' style='stop-color:%238b5cf6;stop-opacity:1' /></linearGradient></defs><circle cx='50' cy='50' r='45' fill='url(%23grad)'/><text x='50' y='65' font-family='Arial,sans-serif' font-size='45' font-weight='bold' text-anchor='middle' fill='white'>G</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' style='stop-color:%236366f1;stop-opacity:1' /><stop offset='100%25' style='stop-color:%238b5cf6;stop-opacity:1' /></linearGradient></defs><circle cx='50' cy='50' r='45' fill='url(%23grad)'/><text x='50' y='65' font-family='Arial,sans-serif' font-size='45' font-weight='bold' text-anchor='middle' fill='white'>G</text></svg>">
+    
     <link rel="stylesheet" href="style-new.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -33,7 +38,15 @@
                     <i class="fas fa-code"></i>
                 </div>
             </div>
-            <div class="nav-menu-icons">
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <div class="nav-menu-icons" id="nav-menu">
                 <a href="#home" class="nav-item active">
                     <i class="fas fa-home"></i>
                     <span>Home</span>
@@ -68,7 +81,7 @@
                 </div>
                 <h1 class="hero-title">
                     <span class="title-line">Hi, I'm</span>
-                    <span class="title-name" id="typing-text">Muhammad Gibran</span>
+                    <span class="title-name" id="typing-text">Muhammad Gibran Dhiyaulhaq</span>
                     <span class="title-role"> Junior Full Stack Developer</span>
                 </h1>
                 <p class="hero-description">
@@ -111,6 +124,59 @@
         <div class="scroll-hint">
             <span class="scroll-text">Scroll to explore</span>
             <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Rolling Quotes Section -->
+    <section class="rolling-quotes">
+        <div class="container">
+            <div class="quotes-container">
+                <div class="quote-wrapper">
+                    <div class="quote-item active">
+                        <div class="quote-content">
+                            <i class="fas fa-quote-left quote-icon"></i>
+                            <p class="quote-text">"Code is like humor. When you have to explain it, it's bad."</p>
+                        </div>
+                    </div>
+                    
+                    <div class="quote-item">
+                        <div class="quote-content">
+                            <i class="fas fa-quote-left quote-icon"></i>
+                            <p class="quote-text">"First, solve the problem. Then, write the code."</p>
+                        </div>
+                    </div>
+                    
+                    <div class="quote-item">
+                        <div class="quote-content">
+                            <i class="fas fa-quote-left quote-icon"></i>
+                            <p class="quote-text">"Experience is the name everyone gives to their mistakes."</p>
+                        </div>
+                    </div>
+                    
+                    <div class="quote-item">
+                        <div class="quote-content">
+                            <i class="fas fa-quote-left quote-icon"></i>
+                            <p class="quote-text">"The best error message is the one that never shows up."</p>
+                        </div>
+                    </div>
+                    
+                    <div class="quote-item">
+                        <div class="quote-content">
+                            <i class="fas fa-quote-left quote-icon"></i>
+                            <p class="quote-text">"Simplicity is the ultimate sophistication."</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quote Navigation Dots -->
+                <div class="quote-dots">
+                    <span class="dot active" data-quote="0"></span>
+                    <span class="dot" data-quote="1"></span>
+                    <span class="dot" data-quote="2"></span>
+                    <span class="dot" data-quote="3"></span>
+                    <span class="dot" data-quote="4"></span>
+                </div>
+            </div>
         </div>
     </section>
 

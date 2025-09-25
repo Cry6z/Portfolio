@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initNavbar();
     initTypingEffect();
     initRoleRotation();
+    initRollingQuotes();
     initScrollAnimations();
     initSkillBars();
     initProjectModals();
@@ -16,9 +17,9 @@ document.addEventListener('DOMContentLoaded', function() {
 // Navbar functionality
 function initNavbar() {
     const navbar = document.getElementById('navbar');
-    const navToggle = document.getElementById('mobile-menu');
+    const mobileToggle = document.getElementById('mobile-menu-toggle');
     const navMenu = document.getElementById('nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navLinks = document.querySelectorAll('.nav-item');
 
     // Navbar scroll effect
     window.addEventListener('scroll', function() {
@@ -30,17 +31,49 @@ function initNavbar() {
     });
 
     // Mobile menu toggle
-    navToggle.addEventListener('click', function() {
-        navToggle.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
+    if (mobileToggle) {
+        mobileToggle.addEventListener('click', function() {
+            mobileToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            
+            // Prevent body scroll when menu is open
+            if (navMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
 
     // Close mobile menu when clicking on a link
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
-            navToggle.classList.remove('active');
-            navMenu.classList.remove('active');
+            if (mobileToggle) {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
         });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (mobileToggle && navMenu.classList.contains('active')) {
+            if (!navbar.contains(event.target)) {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+    });
+
+    // Close mobile menu on window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768 && mobileToggle) {
+            mobileToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
     });
 
     // Active link highlighting
@@ -68,7 +101,7 @@ function initNavbar() {
 // Typing effect for hero section
 function initTypingEffect() {
     const typingText = document.getElementById('typing-text');
-    const texts = ['Muhammad Gibran', 'Full Stack Developer', 'UI/UX Designer', 'Gamer'];
+    const texts = ['Muhammad Gibran Dhiyaulhaq', 'Junior Full Stack Developer', 'UI/UX Designer', 'Gamer'];
     let textIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
@@ -106,16 +139,10 @@ function initTypingEffect() {
 function initRoleRotation() {
     const roleElement = document.querySelector('.title-role');
     const roles = [
-        'Full Stack Developer',
-        'Frontend Developer', 
-        'Backend Developer',
-        'Mobile Developer',
-        'UI/UX Designer',
-        'Web Developer',
-        'Software Engineer',
-        'Laravel Developer',
-        'Flutter Developer',
-        'JavaScript Developer'
+        'Laravel',
+        'Figma',
+        'Github',
+        'Python'
     ];
     
     let currentRoleIndex = 0;
@@ -148,6 +175,167 @@ function initRoleRotation() {
     
     // Start rotation every 3 seconds
     setInterval(rotateRole, 3000);
+}
+
+// Rolling Quotes functionality
+function initRollingQuotes() {
+    const quoteItems = document.querySelectorAll('.quote-item');
+    const dots = document.querySelectorAll('.quote-dots .dot');
+    
+    if (quoteItems.length === 0 || dots.length === 0) return;
+    
+    let currentQuote = 0;
+    let isTransitioning = false;
+    let autoRotateInterval;
+    
+    // Function to show specific quote
+    function showQuote(index) {
+        if (isTransitioning || index === currentQuote) return;
+        
+        isTransitioning = true;
+        
+        // Remove active class from current quote and dot
+        quoteItems[currentQuote].classList.remove('active');
+        dots[currentQuote].classList.remove('active');
+        
+        // Add slide-out animation to current quote
+        quoteItems[currentQuote].classList.add('slide-out');
+        
+        setTimeout(() => {
+            // Remove slide-out class and add active to new quote
+            quoteItems[currentQuote].classList.remove('slide-out');
+            
+            // Update current quote index
+            currentQuote = index;
+            
+            // Add active class to new quote and dot
+            quoteItems[currentQuote].classList.add('active', 'slide-in');
+            dots[currentQuote].classList.add('active');
+            
+            setTimeout(() => {
+                quoteItems[currentQuote].classList.remove('slide-in');
+                isTransitioning = false;
+            }, 800);
+        }, 400);
+    }
+    
+    // Function to go to next quote
+    function nextQuote() {
+        const nextIndex = (currentQuote + 1) % quoteItems.length;
+        showQuote(nextIndex);
+    }
+    
+    // Add click event listeners to dots
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            showQuote(index);
+            resetAutoRotate();
+        });
+        
+        // Add hover effect
+        dot.addEventListener('mouseenter', () => {
+            if (index !== currentQuote) {
+                dot.style.transform = 'scale(1.2)';
+            }
+        });
+        
+        dot.addEventListener('mouseleave', () => {
+            if (index !== currentQuote) {
+                dot.style.transform = 'scale(1)';
+            }
+        });
+    });
+    
+    // Auto-rotate quotes
+    function startAutoRotate() {
+        autoRotateInterval = setInterval(nextQuote, 5000); // Change every 5 seconds
+    }
+    
+    function resetAutoRotate() {
+        clearInterval(autoRotateInterval);
+        startAutoRotate();
+    }
+    
+    // Pause auto-rotate on hover
+    const quotesContainer = document.querySelector('.quotes-container');
+    if (quotesContainer) {
+        quotesContainer.addEventListener('mouseenter', () => {
+            clearInterval(autoRotateInterval);
+        });
+        
+        quotesContainer.addEventListener('mouseleave', () => {
+            startAutoRotate();
+        });
+    }
+    
+    // Pause auto-rotate when page is not visible
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            clearInterval(autoRotateInterval);
+        } else {
+            startAutoRotate();
+        }
+    });
+    
+    // Touch/swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    if (quotesContainer) {
+        quotesContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        quotesContainer.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+    }
+    
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                // Swipe left - next quote
+                nextQuote();
+            } else {
+                // Swipe right - previous quote
+                const prevIndex = currentQuote === 0 ? quoteItems.length - 1 : currentQuote - 1;
+                showQuote(prevIndex);
+            }
+            resetAutoRotate();
+        }
+    }
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            const prevIndex = currentQuote === 0 ? quoteItems.length - 1 : currentQuote - 1;
+            showQuote(prevIndex);
+            resetAutoRotate();
+        } else if (e.key === 'ArrowRight') {
+            nextQuote();
+            resetAutoRotate();
+        }
+    });
+    
+    // Start auto-rotation
+    startAutoRotate();
+    
+    // Add entrance animation on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+            }
+        });
+    }, { threshold: 0.3 });
+    
+    if (quotesContainer) {
+        observer.observe(quotesContainer);
+    }
 }
 
 // Scroll animations
