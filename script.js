@@ -426,67 +426,63 @@ function initProjectModals() {
 
     const projectData = {
         1: {
-            title: 'E-Commerce Website',
-            image: 'https://via.placeholder.com/600x400/6366f1/ffffff?text=E-Commerce+Website',
-            description: 'A modern e-commerce platform built with React and Node.js, featuring user authentication, product catalog, shopping cart, and payment integration.',
-            technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Stripe API'],
+            title: 'Portfolio',
+            image: 'project/portfolio.png',
+            description: 'Website portfolio saya yang menampilkan berbagai project dan keahlian yang saya miliki. Dibuat dengan desain modern dan responsif.',
+            technologies: ['HTML', 'CSS', 'JavaScript'],
             features: [
-                'User authentication and authorization',
-                'Product catalog with search and filtering',
-                'Shopping cart and wishlist functionality',
-                'Secure payment processing with Stripe',
-                'Admin dashboard for product management',
-                'Responsive design for all devices'
-            ],
-            liveDemo: '#',
-            github: '#'
-        },
-        2: {
-            title: 'Task Management App',
-            image: 'https://via.placeholder.com/600x400/8b5cf6/ffffff?text=Task+Management+App',
-            description: 'A collaborative task management application with real-time updates, built using Vue.js and Firebase for seamless team collaboration.',
-            technologies: ['Vue.js', 'Firebase', 'Vuex', 'CSS3', 'JavaScript'],
-            features: [
-                'Real-time collaboration',
-                'Task assignment and tracking',
-                'Project timeline visualization',
-                'Team member management',
-                'File attachments and comments',
-                'Mobile-responsive interface'
-            ],
-            liveDemo: '#',
-            github: '#'
-        },
-        3: {
-            title: 'Weather Dashboard',
-            image: 'https://via.placeholder.com/600x400/06b6d4/ffffff?text=Weather+Dashboard',
-            description: 'A beautiful weather dashboard that provides location-based weather forecasts with interactive charts and detailed weather information.',
-            technologies: ['JavaScript', 'Weather API', 'Charts.js', 'HTML5', 'CSS3'],
-            features: [
-                'Current weather conditions',
-                '7-day weather forecast',
-                'Interactive weather charts',
-                'Location-based weather data',
-                'Weather alerts and notifications',
-                'Beautiful UI with weather animations'
-            ],
-            liveDemo: '#',
-            github: '#'
-        },
-        4: {
-            title: 'Portfolio Website',
-            image: 'https://via.placeholder.com/600x400/10b981/ffffff?text=Portfolio+Website',
-            description: 'A responsive portfolio website with modern animations and interactive elements, showcasing projects and skills in an elegant way.',
-            technologies: ['HTML5', 'CSS3', 'JavaScript', 'GSAP', 'Responsive Design'],
-            features: [
-                'Modern and clean design',
-                'Smooth scrolling animations',
+                'Desain modern dan responsif',
+                'Animasi smooth scrolling',
                 'Interactive project gallery',
-                'Contact form with validation',
+                'Contact form dengan validasi',
                 'Mobile-first responsive design',
                 'SEO optimized'
             ],
-            liveDemo: '#',
+            github: '#'
+        },
+        2: {
+            title: 'Health Hive',
+            image: 'project/heatlhive.png',
+            description: 'Health Hive adalah website sederhana untuk pendataan siswa yang berkunjung ke UKS SMKN 1 Kota Bengkulu, dirancang agar proses pencatatan, penyimpanan, dan pengelolaan data menjadi lebih mudah, rapi, dan terorganisir.',
+            technologies: ['Laravel', 'Tailwind CSS', 'PHP', 'Blade'],
+            features: [
+                'Sistem pendataan siswa UKS',
+                'Dashboard admin untuk pengelolaan',
+                'Pencatatan kunjungan siswa',
+                'Laporan data kesehatan',
+                'Interface yang user-friendly',
+                'Database management yang terorganisir'
+            ],
+            github: '#'
+        },
+        3: {
+            title: 'JustAlarm',
+            image: 'project/JustAlarm.png',
+            description: 'JustAlarm adalah aplikasi alarm sederhana berbasis Android, dibuat dengan Java dan XML. Dirancang dengan antarmuka yang mudah digunakan serta fokus pada fungsionalitas utama alarm agar pengguna dapat mengatur dan mengelola waktu bangun atau pengingat harian dengan praktis.',
+            technologies: ['Java', 'XML', 'SQLite', 'Android'],
+            features: [
+                'Alarm dengan berbagai nada dering',
+                'Pengaturan alarm berulang',
+                'Snooze functionality',
+                'Interface yang sederhana dan intuitif',
+                'Penyimpanan data lokal dengan SQLite',
+                'Notifikasi alarm yang reliable'
+            ],
+            github: '#'
+        },
+        4: {
+            title: 'CatatWang',
+            image: 'project/CatatWang.png',
+            description: 'CatatWang adalah website pencatatan keuangan kelas yang modern, responsif, dan minimalis. Dibuat untuk memudahkan pengelolaan pemasukan, pengeluaran, serta saldo secara transparan dan terstruktur. Website ini dirancang dengan antarmuka yang sederhana namun menarik sehingga mudah digunakan oleh semua anggota kelas.',
+            technologies: ['Laravel', 'PHP', 'Tailwind CSS', 'Blade'],
+            features: [
+                'Pencatatan pemasukan dan pengeluaran',
+                'Tracking saldo kelas secara real-time',
+                'Dashboard keuangan yang informatif',
+                'Laporan keuangan bulanan',
+                'Multi-user access dengan role management',
+                'Interface yang clean dan modern'
+            ],
             github: '#'
         },
         5: {
@@ -502,7 +498,6 @@ function initProjectModals() {
                 'Multi-platform integration',
                 'Real-time notifications'
             ],
-            liveDemo: '#',
             github: '#'
         },
         6: {
